@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="./assets/styles.css">
+    <script src="./assets/script.js"defer></script>
+    <title>Fundación Mundo Ideal</title>
+</head>
+
+<body>
+    <header>
+
+        <div id="image_header">
+            <a href="./index.html"><img src="./assets/img/logo_fundacion_expandido.png" alt="logo fundación"></a>
+        </div>
+  <!-- Inicio de NAVBAR responsiva, Breakpoint es 800px, puede ser menor si se reduce el fontsize de los enlaces en el CSS, para evitar links con dos lineas en pantallas mas pequeñas-->
+
+        <button id="open_sidebar_button" onclick="openSidebar()">
+            <svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px">
+                <path
+                    d="M165.13-254.62q-10.68 0-17.9-7.26-7.23-7.26-7.23-18t7.23-17.86q7.22-7.13 17.9-7.13h629.74q10.68 0 17.9 7.26 7.23 7.26 7.23 18t-7.23 17.87q-7.22 7.12-17.9 7.12H165.13Zm0-200.25q-10.68 0-17.9-7.27-7.23-7.26-7.23-17.99 0-10.74 7.23-17.87 7.22-7.13 17.9-7.13h629.74q10.68 0 17.9 7.27 7.23 7.26 7.23 17.99 0 10.74-7.23 17.87-7.22 7.13-17.9 7.13H165.13Zm0-200.26q-10.68 0-17.9-7.26-7.23-7.26-7.23-18t7.23-17.87q7.22-7.12 17.9-7.12h629.74q10.68 0 17.9 7.26 7.23 7.26 7.23 18t-7.23 17.86q-7.22 7.13-17.9 7.13H165.13Z" />
+            </svg>
+        </button>
+
+        <nav id="navbar">
+            <ul>
+                <li><button id="close_sidebar_button" onclick="closeSidebar()">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px">
+                            <path
+                                d="m480-444.62-209.69 209.7q-7.23 7.23-17.5 7.42-10.27.19-17.89-7.42-7.61-7.62-7.61-17.7 0-10.07 7.61-17.69L444.62-480l-209.7-209.69q-7.23-7.23-7.42-17.5-.19-10.27 7.42-17.89 7.62-7.61 17.7-7.61 10.07 0 17.69 7.61L480-515.38l209.69-209.7q7.23-7.23 17.5-7.42 10.27-.19 17.89 7.42 7.61 7.62 7.61 17.7 0 10.07-7.61 17.69L515.38-480l209.7 209.69q7.23 7.23 7.42 17.5.19 10.27-7.42 17.89-7.62 7.61-17.7 7.61-10.07 0-17.69-7.61L480-444.62Z" />
+                        </svg></button></li>
+                <li><a class="active_link" href="">Inicio</a></li>
+                <li><a href="">Quienes Somos</a></li>
+                <li><a href="">Equipo</a></li>
+                <li><a href="">Hazte Socio</a></li>
+                <li><a href="">Contacto</a></li>
+            </ul>
+        </nav>
+
+    </header>
+
+    <div id="overlay" onclick="closeSidebar()"></div>
+
+    <main>
+        <div class="contenedor_inicio_1">
+            <div class="contenedor_imagen_inicio">
+                
+            </div>
+            <div class="contenedor_texto_inicio">
+                <h2>FUNDACIÓN MUNDO IDEAL</h2>
+                <p>Aquí debe ir un breve párrafo que sintetice en qué consiste la fundación y qué se realiza, actividades, etc.</p>
+            </div>
+        </div>
+
+        <div class="contenedor_inicio_Pguido">
+            <div class="contenedor_texto_Pguido">
+                <h2>PADRE GUIDO BLANCHETTE</h2>
+                <p>Información relevante acerca de Guido y su rol en la historia de la fundación.</p>
+            </div>
+
+            <div class="contenedor_Retrato_Pguido">
+                <img src="./assets/img/retrato_PGuido.png" alt="">
+            </div>
+        </div>
+
+    </main>
+
+    <footer>
+        <ul>
+            <li id="footer_title">Fundación Mundo Ideal</li>
+            <li>Pedro Mira 420, San Joaquín, Región Metropolitana</li>
+            <li>Teléfono:</li>
+            <li>Correo:</li>
+        </ul>
+    </footer>
+
+</body>
+
+</html>
