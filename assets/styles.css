@@ -1,16 +1,9 @@
 html {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
   font-family: "Montserrat", sans-serif;
 }
 
-*,
-*:before,
-*:after {
-  -webkit-box-sizing: inherit;
-  -moz-box-sizing: inherit;
-  box-sizing: inherit;
+* {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
@@ -20,7 +13,8 @@ body {
   flex-direction: column;
   min-height: 100vh;
   min-height: 100dvh;
-  max-width: 100vw;
+  overflow-x: hidden;
+  width: 100%;
   background-color: #141414;
 }
 
@@ -37,8 +31,10 @@ body {
 }
 
 nav {
- /* border-bottom: 1px solid #b6b6b6;*/
+  /* border-bottom: 1px solid #b6b6b6;*/
   background-color: #367547;
+  transition: transform 0.5s ease;
+  will-change: transform;
 }
 
 nav ul {
@@ -83,8 +79,9 @@ nav a:hover {
   cursor: pointer;
 }
 
-#open_sidebar_button svg{
-  fill: #000000; /* color de boton para abrir menu */
+#open_sidebar_button svg {
+  fill: #000000;
+  /* color de boton para abrir menu */
 }
 
 #close_sidebar_button {
@@ -95,35 +92,37 @@ nav a:hover {
   cursor: pointer;
 }
 
-#close_sidebar_button svg{
-  fill: #ffffff; /* color de boton para cerrar menu */
+#close_sidebar_button svg {
+  fill: #ffffff;
+  /* color de boton para cerrar menu */
 }
 
 #overlay {
-  background-color: rgba(0, 0, 0, 0.534); /*color de overlay al arbrir sidebar*/
+  background-color: rgba(0, 0, 0, 0.534);
+  /*color de overlay al arbrir sidebar*/
   position: fixed;
   width: 100vw;
   inset: 0;
   z-index: 9;
-  opacity: 0; 
-  visibility: hidden; 
-  transition: opacity 0.3s ease, visibility 0.3s ease; /
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;/
 }
 
-main{
+main {
   flex-grow: 1;
 }
 
-.contenedor_inicio_1{
+.contenedor_inicio_1 {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  max-width: 100vw;
+  width: 100%;
   min-height: 300px;
   background-color: #b6ffd4;
 }
 
-.contenedor_imagen_inicio{
+.contenedor_imagen_inicio {
   display: flex;
   min-height: 550px;
   width: 50%;
@@ -133,56 +132,106 @@ main{
   background-repeat: no-repeat;
 }
 
-.contenedor_texto_inicio{
+.contenedor_texto_inicio {
   width: 50%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: start;
-  padding: 2em 16em 2em 2em;
+  padding: 4em 8em 4em 2em;
 }
 
-.contenedor_inicio_Pguido{
+.contenedor_inicio_Pguido {
   display: flex;
   flex-direction: row;
-  max-width: 100vw;
-  min-height: 600px;
-  background-color: #b6ffd4
+  width: 100%;
+  height: auto;
+  background-color: #b6ffd4;
+  padding: 4em;
 }
 
-.contenedor_texto_Pguido{
+.contenedor_texto_Pguido {
   display: flex;
   width: 50%;
   flex-direction: column;
   justify-content: center;
   align-items: end;
-  padding: 2em;
+  text-align: end;
+  padding: 0 2em 0 0;
 }
 
-.contenedor_Retrato_Pguido{
+.contenedor_Retrato_Pguido {
   display: flex;
   width: 50%;
   align-items: center;
   justify-content: start;
-  padding: 2em;
+  padding: 0 0 0 2em;
 }
 
-.contenedor_Retrato_Pguido img{
+.contenedor_Retrato_Pguido img {
   border-radius: 100%;
-  max-width: 450px;
+  width: 60%;
 }
 
-footer{
+#titulo_actividades {
+  text-align: center;
+  width: 100%;
+  height: auto;
+  padding-top: 2em;
+  color: white;
+}
+
+.contenedor_actividades {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: auto;
+  padding: 2em 2em 4em 2em;
+  gap: 2em;
+}
+
+.tarjeta_actividad {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 450px;
+  width: 300px;
+  background-color: #2a5f38;
+  border-radius: .5em;
+  text-align: center;
+  gap: 0.5em;
+  transform: translateZ(0); 
+  will-change: transform, filter; 
+  filter: grayscale(100%);
+  transition: filter ease 0.3s, transform ease 0.3s;
+  color: white;
+  background-position: center;
+  background-size: cover;
+}
+
+.tarjeta_actividad:hover {
+  filter: grayscale(0%);
+  transform: scale(105%);
+}
+
+#actividad_1 {
+  background-image: url(./img/actividad_holder.jpeg);
+}
+
+footer {
   text-align: center;
   padding: 2em;
   background-color: #d3d3d3;
 }
 
-footer ul{
+footer ul {
   list-style: none;
 }
 
-#footer_title{
+#footer_title {
   font-weight: 800;
   font-size: 1.3em;
 }
@@ -220,8 +269,8 @@ footer ul{
   /* Comentario relevante debugger: inicialmente este selector era solo .overlay_show, pero esto presentaba el problema que los selectores de ID (#) toman prioridad por sobre clases en CSS, entonces, a pesar de que la clase estaba siendo agregada correctamente, el estilo ID previo toma prioridad. Este problema no surge con el estilo de cosas como nav, porque en CSS el orden de prioridad es ID>CLASS>TAGS (es mas profundo el grupo de cada priporidad, pero es para entender este caso). La solución simple es agregar el selector del id original más la clase overlay_show, de esta forma le agregas mayor prioridad a este selector. Un selector con solo ID tiene prioridad 1.0.0, un selector de id mas clase tiene prioridad 1.1.0, de esta forma se antepone al estilo del id declarado antes del breakingpoint */
 
   #overlay.overlay_show {
-    opacity: 1; 
-    visibility: visible; 
+    opacity: 1;
+    visibility: visible;
     cursor: pointer;
   }
 
@@ -238,49 +287,55 @@ footer ul{
     border-bottom: none;
   }
 
+  .contenedor_inicio_1 {
+    flex-direction: column;
+    justify-content: center;
+    max-width: 100vw;
+    min-height: 300px;
+    background-color: #b6ffd4;
+  }
+
+  .contenedor_imagen_inicio {
+    display: flex;
+    min-height: 550px;
+    width: 100%;
+    order: 1;
+  }
+
+  .contenedor_texto_inicio {
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    padding: 6em 2em;
+    text-align: center;
+    order: 0;
+  }
+
   .contenedor_inicio_Pguido {
     flex-direction: column;
   }
 
-  .contenedor_texto_Pguido{
-  width: 100%;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
+  .contenedor_texto_Pguido {
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    order: 1;
+    padding: 1em 0 0 0;
+  }
 
-.contenedor_Retrato_Pguido{
-  width: 100%;
-  justify-content: center;
-}
+  .contenedor_Retrato_Pguido {
+    width: 100%;
+    justify-content: center;
+    order: 0;
+    padding: 0 0 0 0;
+  }
 
-.contenedor_Retrato_Pguido img{
-  max-width: 275px;
-}
+  .contenedor_Retrato_Pguido img {
+    max-width: 275px;
+  }
 
-.contenedor_inicio_1{
-  flex-direction: column;
-  justify-content: center;
-  max-width: 100vw;
-  min-height: 300px;
-  background-color: #b6ffd4;
-}
 
-.contenedor_imagen_inicio{
-  display: flex;
-  min-height: 550px;
-  width: 100%;
-  order: 1;
-}
-
-.contenedor_texto_inicio{
-  width: 100%;
-  flex-direction: column;
-  align-items: center;
-  padding: 2em;
-  text-align: center;
-  order: 0;
-}
 
 }
